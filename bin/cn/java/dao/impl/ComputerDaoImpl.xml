@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper是局部配置文件中的跟标签，类似于html中的html标签 namespace：代表唯一标识符，其值与某一个dao层类的路径保持一致 -->
+<mapper namespace="cn.java.dao.impl.ComputerDaoImpl">
+	<!-- 修改数据 1、修改数据时不需要指定返回值类型 2、修改数据需要指定参数类型 -->
+	<update id="updateComputer" parameterType="Map">
+		UPDATE `computers` SET computer_name=#{computer_name},price=#{price} WHERE
+		id=#{id}
+	</update>
+
+	<!-- 通过指定的id删除数据 删除数据时也不需要指定返回值类型 删除数据时，需要指定参数类型(Long) -->
+	<delete id="deleteComputer" parameterType="Integer">
+		DELETE FROM	`computers` WHERE id=#{0}
+	</delete>
+</mapper>
